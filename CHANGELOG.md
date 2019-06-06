@@ -1,0 +1,1 @@
+- Malformed queries now return a 400 HTTP error code, instead of 500

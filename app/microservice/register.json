@@ -1,250 +1,315 @@
 {
-	"name": "#(service.name)",
-	"cache": ["query-document"],
-	"uncache": ["query-document"],
-	"tags": ["rw"],
-	"endpoints": [{
-		"path": "/v1/query/:dataset",
-		"method": "GET",
-		"binary": true,
-		"redirect": {
-			"method": "POST",
-			"path": "/api/v1/document/query/:dataset"
-		},
-		"filters": [{
-			"name": "dataset",
-			"path": "/v1/dataset/:dataset",
-			"method": "GET",
-			"params": {
-				"dataset": "dataset"
-			},
-			"compare": {
-				"data": {
-					"attributes": {
-						"connectorType": "document"
-					}
-				}
-			}
-		}]
-	}, {
-		"path": "/v1/query/:dataset",
-		"method": "POST",
-		"binary": true,
-		"redirect": {
-			"method": "POST",
-			"path": "/api/v1/document/query/:dataset"
-		},
-		"filters": [{
-			"name": "dataset",
-			"path": "/v1/dataset/:dataset",
-			"method": "GET",
-			"params": {
-				"dataset": "dataset"
-			},
-			"compare": {
-				"data": {
-					"attributes": {
-						"connectorType": "document"
-					}
-				}
-			}
-		}]
-	},{
-		"path": "/v2/query/:dataset",
-		"method": "GET",
-		"binary": true,
-		"redirect": {
-			"method": "POST",
-			"path": "/api/v1/document/query-v2/:dataset"
-		},
-		"filters": [{
-			"name": "dataset",
-			"path": "/v1/dataset/:dataset",
-			"method": "GET",
-			"params": {
-				"dataset": "dataset"
-			},
-			"compare": {
-				"data": {
-					"attributes": {
-						"connectorType": "document"
-					}
-				}
-			}
-		}]
-	}, {
-		"path": "/v2/query/:dataset",
-		"method": "POST",
-		"binary": true,
-		"redirect": {
-			"method": "POST",
-			"path": "/api/v1/document/query-v2/:dataset"
-		},
-		"filters": [{
-			"name": "dataset",
-			"path": "/v1/dataset/:dataset",
-			"method": "GET",
-			"params": {
-				"dataset": "dataset"
-			},
-			"compare": {
-				"data": {
-					"attributes": {
-						"connectorType": "document"
-					}
-				}
-			}
-		}]
-	},{
-		"path": "/v1/download/:dataset",
-		"method": "GET",
-		"binary": true,
-		"redirect": {
-			"method": "POST",
-			"path": "/api/v1/document/download/:dataset"
-		},
-		"filters": [{
-			"name": "dataset",
-			"path": "/v1/dataset/:dataset",
-			"method": "GET",
-			"params": {
-				"dataset": "dataset"
-			},
-			"compare": {
-				"data": {
-					"attributes": {
-						"connectorType": "document"
-					}
-				}
-			}
-		}]
-	}, {
-		"path": "/v1/download/:dataset",
-		"method": "POST",
-		"binary": true,
-		"redirect": {
-			"method": "POST",
-			"path": "/api/v1/document/download/:dataset"
-		},
-		"filters": [{
-			"name": "dataset",
-			"path": "/v1/dataset/:dataset",
-			"method": "GET",
-			"params": {
-				"dataset": "dataset"
-			},
-			"compare": {
-				"data": {
-					"attributes": {
-						"connectorType": "document"
-					}
-				}
-			}
-		}]
-	}, {
-		"path": "/v1/fields/:dataset",
-		"method": "GET",
-		"redirect": {
-			"method": "POST",
-			"path": "/api/v1/document/fields/:dataset"
-		},
-		"filters": [{
-			"name": "dataset",
-			"path": "/v1/dataset/:dataset",
-			"method": "GET",
-			"params": {
-				"dataset": "dataset"
-			},
-			"compare": {
-				"data": {
-					"attributes": {
-						"connectorType": "document"
-					}
-				}
-			}
-		}]
-	},{
-		"path": "/v1/dataset/:dataset/concat",
-		"method": "POST",
-		"authenticated": true,
-		"redirect": {
-			"method": "POST",
-			"path": "/api/v1/document/concat/:dataset"
-		},
-		"filters": [{
-			"name": "dataset",
-			"path": "/v1/dataset/:dataset",
-			"method": "GET",
-			"params": {
-				"dataset": "dataset"
-			},
-			"compare": {
-				"data": {
-					"attributes": {
-						"connectorType": "document"
-					}
-				}
-			}
-		}]
-	},{
-		"path": "/v1/dataset/:dataset/data/:id",
-		"method": "POST",
-		"authenticated": true,
-		"redirect": {
-			"method": "POST",
-			"path": "/api/v1/document/data/:dataset/:id"
-		},
-		"filters": [{
-			"name": "dataset",
-			"path": "/v1/dataset/:dataset",
-			"method": "GET",
-			"params": {
-				"dataset": "dataset"
-			},
-			"compare": {
-				"data": {
-					"attributes": {
-						"connectorType": "document"
-					}
-				}
-			}
-		}]
-	}, {
-		"path": "/v1/doc-datasets/:provider",
-		"method": "POST",
-		"redirect": {
-			"method": "POST",
-			"path": "/api/v1/document/:provider"
-		}
-	}, {
-        "path": "/v1/doc-datasets/:provider/:id",
-        "method": "DELETE",
-        "redirect": {
-            "method": "DELETE",
-            "path": "/api/v1/document/:id"
-        }
-    }, {
-        "path": "/v1/dataset/:dataset/data-overwrite",
+  "name": "#(service.name)",
+  "cache": [
+    "query-document"
+  ],
+  "uncache": [
+    "query-document"
+  ],
+  "tags": [
+    "rw"
+  ],
+  "endpoints": [
+    {
+      "path": "/v1/query/:dataset",
+      "method": "GET",
+      "binary": true,
+      "redirect": {
         "method": "POST",
-		"authenticated": true,
-        "redirect": {
-            "method": "POST",
-            "path": "/api/v1/document/:dataset/data-overwrite"
-        },
-		"filters": [{
-			"name": "dataset",
-			"path": "/v1/dataset/:dataset",
-			"method": "GET",
-			"params": {
-				"dataset": "dataset"
-			},
-			"compare": {
-				"data": {
-					"attributes": {
-						"connectorType": "document"
-					}
-				}
-			}
-		}]
-    }]
+        "path": "/api/v1/document/query/:dataset"
+      },
+      "filters": [
+        {
+          "name": "dataset",
+          "path": "/v1/dataset/:dataset",
+          "method": "GET",
+          "params": {
+            "dataset": "dataset"
+          },
+          "compare": {
+            "data": {
+              "attributes": {
+                "connectorType": "document"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "/v1/query/:dataset",
+      "method": "POST",
+      "binary": true,
+      "redirect": {
+        "method": "POST",
+        "path": "/api/v1/document/query/:dataset"
+      },
+      "filters": [
+        {
+          "name": "dataset",
+          "path": "/v1/dataset/:dataset",
+          "method": "GET",
+          "params": {
+            "dataset": "dataset"
+          },
+          "compare": {
+            "data": {
+              "attributes": {
+                "connectorType": "document"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "/v2/query/:dataset",
+      "method": "GET",
+      "binary": true,
+      "redirect": {
+        "method": "POST",
+        "path": "/api/v1/document/query-v2/:dataset"
+      },
+      "filters": [
+        {
+          "name": "dataset",
+          "path": "/v1/dataset/:dataset",
+          "method": "GET",
+          "params": {
+            "dataset": "dataset"
+          },
+          "compare": {
+            "data": {
+              "attributes": {
+                "connectorType": "document"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "/v2/query/:dataset",
+      "method": "POST",
+      "binary": true,
+      "redirect": {
+        "method": "POST",
+        "path": "/api/v1/document/query-v2/:dataset"
+      },
+      "filters": [
+        {
+          "name": "dataset",
+          "path": "/v1/dataset/:dataset",
+          "method": "GET",
+          "params": {
+            "dataset": "dataset"
+          },
+          "compare": {
+            "data": {
+              "attributes": {
+                "connectorType": "document"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "/v1/download/:dataset",
+      "method": "GET",
+      "binary": true,
+      "redirect": {
+        "method": "POST",
+        "path": "/api/v1/document/download/:dataset"
+      },
+      "filters": [
+        {
+          "name": "dataset",
+          "path": "/v1/dataset/:dataset",
+          "method": "GET",
+          "params": {
+            "dataset": "dataset"
+          },
+          "compare": {
+            "data": {
+              "attributes": {
+                "connectorType": "document"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "/v1/download/:dataset",
+      "method": "POST",
+      "binary": true,
+      "redirect": {
+        "method": "POST",
+        "path": "/api/v1/document/download/:dataset"
+      },
+      "filters": [
+        {
+          "name": "dataset",
+          "path": "/v1/dataset/:dataset",
+          "method": "GET",
+          "params": {
+            "dataset": "dataset"
+          },
+          "compare": {
+            "data": {
+              "attributes": {
+                "connectorType": "document"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "/v1/fields/:dataset",
+      "method": "GET",
+      "redirect": {
+        "method": "POST",
+        "path": "/api/v1/document/fields/:dataset"
+      },
+      "filters": [
+        {
+          "name": "dataset",
+          "path": "/v1/dataset/:dataset",
+          "method": "GET",
+          "params": {
+            "dataset": "dataset"
+          },
+          "compare": {
+            "data": {
+              "attributes": {
+                "connectorType": "document"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "/v1/dataset/:dataset/concat",
+      "method": "POST",
+      "authenticated": true,
+      "redirect": {
+        "method": "POST",
+        "path": "/api/v1/document/:dataset/concat"
+      },
+      "filters": [
+        {
+          "name": "dataset",
+          "path": "/v1/dataset/:dataset",
+          "method": "GET",
+          "params": {
+            "dataset": "dataset"
+          },
+          "compare": {
+            "data": {
+              "attributes": {
+                "connectorType": "document"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "/v1/dataset/:dataset/append",
+      "method": "POST",
+      "authenticated": true,
+      "redirect": {
+        "method": "POST",
+        "path": "/api/v1/document/:dataset/append"
+      },
+      "filters": [
+        {
+          "name": "dataset",
+          "path": "/v1/dataset/:dataset",
+          "method": "GET",
+          "params": {
+            "dataset": "dataset"
+          },
+          "compare": {
+            "data": {
+              "attributes": {
+                "connectorType": "document"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "/v1/dataset/:dataset/data/:id",
+      "method": "POST",
+      "authenticated": true,
+      "redirect": {
+        "method": "POST",
+        "path": "/api/v1/document/data/:dataset/:id"
+      },
+      "filters": [
+        {
+          "name": "dataset",
+          "path": "/v1/dataset/:dataset",
+          "method": "GET",
+          "params": {
+            "dataset": "dataset"
+          },
+          "compare": {
+            "data": {
+              "attributes": {
+                "connectorType": "document"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "/v1/doc-datasets/:provider",
+      "method": "POST",
+      "redirect": {
+        "method": "POST",
+        "path": "/api/v1/document/:provider"
+      }
+    },
+    {
+      "path": "/v1/doc-datasets/:provider/:id",
+      "method": "DELETE",
+      "redirect": {
+        "method": "DELETE",
+        "path": "/api/v1/document/:id"
+      }
+    },
+    {
+      "path": "/v1/dataset/:dataset/data-overwrite",
+      "method": "POST",
+      "authenticated": true,
+      "redirect": {
+        "method": "POST",
+        "path": "/api/v1/document/:dataset/data-overwrite"
+      },
+      "filters": [
+        {
+          "name": "dataset",
+          "path": "/v1/dataset/:dataset",
+          "method": "GET",
+          "params": {
+            "dataset": "dataset"
+          },
+          "compare": {
+            "data": {
+              "attributes": {
+                "connectorType": "document"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
 }

@@ -2,7 +2,7 @@ const JSONAPISerializer = require('jsonapi-serializer').Serializer;
 
 const deleteSerializer = new JSONAPISerializer('query', {
     attributes: ['deleted'],
-    typeForAttribute: function (attribute, record) {
+    typeForAttribute(attribute) {
         return attribute;
     },
     keyForAttribute: 'camelCase'

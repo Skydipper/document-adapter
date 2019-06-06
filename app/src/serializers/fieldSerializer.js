@@ -8,19 +8,9 @@ class FieldSerializer {
         return el.properties;
     }
 
-    static serialize(data, tableName, id) {
+    static serialize(data, tableName) {
         if (data && data.length > 0) {
-            // return {
-            //     data: {
-            //         id: id,
-            //         type: 'csv',
-            //         attributes: {
-            //             tableName: tableName,
-            //             fields: FieldSerializer.convertToArray(FieldSerializer.searchProperties(data[0]))
-            //         }
-            //     }
-            // };
-            let mappings = data[0][tableName].mappings;
+            const { mappings } = data[0][tableName];
             if (mappings.type) {
                 return {
                     tableName,

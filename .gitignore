@@ -2,4 +2,6 @@
 .DS_STORE
 npm-debug.log
 
-.env
+dev.env
+.nyc_output
+coverage

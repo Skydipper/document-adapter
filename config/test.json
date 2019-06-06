@@ -1,8 +1,15 @@
 {
-    "logger": {
-        "name": "rw-adapter-document-TEST",
-        "level": "debug",
-        "toFile": false,
-        "dirLogFile": null
-    }
+  "logger": {
+    "name": "rw-adapter-document-TEST",
+    "level": "debug",
+    "toFile": false,
+    "dirLogFile": null
+  },
+  "queues": {
+    "tasks": "DOC-TASKS-TEST"
+  },
+  "elasticsearch": {
+    "port": 9200,
+    "host": "1.1.1.1"
+  }
 }

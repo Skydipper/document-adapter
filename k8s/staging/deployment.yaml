@@ -31,6 +31,8 @@ spec:
             value: app/src
           - name: LOCAL_URL
             value: http://{name}.default.svc.cluster.local:4000
+          - name: LOGGER_LEVEL
+            value: debug
           - name: ELASTIC_URI
             valueFrom:
                 secretKeyRef:

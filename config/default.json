@@ -16,5 +16,8 @@
         "host": "http://mymachine"
     },
     "timeCache": 1500,
-    "stampery": ""
+    "stampery": "",
+    "queues": {
+        "tasks": "DOC-TASKS"
+    }
 }

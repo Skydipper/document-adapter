@@ -1,18 +1,32 @@
-test:
-  extends:
-    file: base.yml
-    service: base
-  ports:
-    - "4000"
-  container_name: rw-adapter-document-test
-  environment:
-    NODE_ENV: test
-  command: test
-  links:
-    - mongo
+version: "3"
+services:
+  test:
+    build: .
+    ports:
+      - "4000:4000"
+    container_name: document
+    environment:
+      NODE_ENV: test
+      PORT: 4000
+      NODE_PATH: app/src
+      API_VERSION: v1
+      CT_TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im1pY3Jvc2VydmljZSIsImNyZWF0ZWRBdCI6IjIwMTYtMDktMTQifQ.IRCIRm1nfIQTfda_Wb6Pg-341zhV8soAgzw7dd5HxxQ
+      STAMPERY_TOKEN:
+      S3_ACCESS_KEY_ID:
+      S3_SECRET_ACCESS_KEY:
+      CT_REGISTER_MODE: auto
+      ELASTIC_PORT_9200_TCP_PORT: 9200
+      HOST_IP: 127.0.0.1
+      CT_URL: http://mymachine:9000
+      LOCAL_URL: http://mymachine:3000
+      RABBITMQ_URL: amqp://rabbitmq:5672
+      ELASTIC_PORT_9200_TCP_ADDR: elasticsearch
+    command: test
+    depends_on:
+      - rabbitmq
 
-mongo:
-  image: mongo
-  command: --smallfiles
-  ports:
-    - "27017"
+  rabbitmq:
+    image: rabbitmq
+    ports:
+      - "5672"
+

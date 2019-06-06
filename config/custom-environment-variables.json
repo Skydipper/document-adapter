@@ -1,13 +1,16 @@
 {
-    "rabbitmq": {
-        "url": "RABBITMQ_URL"
-    },
-    "elasticsearch": {
-        "host": "ELASTIC_PORT_9200_TCP_ADDR",
-        "port": "ELASTIC_PORT_9200_TCP_PORT"
-    },
-    "service": {
-        "port": "PORT"
-    },
-    "stampery": "STAMPERY_TOKEN"
+  "rabbitmq": {
+    "url": "RABBITMQ_URL"
+  },
+  "elasticsearch": {
+    "host": "ELASTIC_PORT_9200_TCP_ADDR",
+    "port": "ELASTIC_PORT_9200_TCP_PORT"
+  },
+  "service": {
+    "port": "PORT"
+  },
+  "stampery": "STAMPERY_TOKEN",
+  "logger": {
+    "level": "LOGGER_LEVEL"
+  }
 }
